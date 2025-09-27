@@ -3,3 +3,6 @@
 .RData
 .Ruserdata
 inst/doc
+
+# PyCharm IDE files
+.idea/
