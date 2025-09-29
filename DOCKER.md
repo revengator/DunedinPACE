@@ -76,7 +76,58 @@ Notes
 - Ensure row names are Illumina probe IDs (cg##########). Missing values should be coded as `NA`.
 - The first build downloads CRAN/Bioconductor dependencies and requires internet access.
 
-Troubleshooting
+## Interactive Shell Access
+
+To explore model data, run interactive R commands, or develop Python versions, you can access a shell inside the
+container:
+
+### Interactive bash shell access
+
+```sh
+docker run --rm -it \
+  -v "$PWD":/data \
+  -v "$PWD/output":/output \
+  --entrypoint /bin/bash \
+  dunedinpace:local
+```
+
+### Direct interactive R access
+
+```sh
+docker run --rm -it \
+  -v "$PWD":/data \
+  -v "$PWD/output":/output \
+  --entrypoint R \
+  dunedinpace:local
+```
+
+### Examples of useful commands inside the container
+
+Once inside the shell, you can run:
+
+```r
+# Load the DunedinPACE library
+library(DunedinPACE)
+
+# Examine the structure of the models
+load('/usr/local/src/DunedinPACE/R/sysdata.rda')
+str(mPACE_Models)
+
+# View available model names
+names(mPACE_Models)
+
+# Examine number of probes per model
+sapply(mPACE_Models$model_probes, length)
+
+# View the first probes of the DunedinPACE model
+head(mPACE_Models$model_probes$DunedinPACE)
+
+# Export model data to CSV files
+write.csv(mPACE_Models$model_probes$DunedinPACE, '/output/model_probes.csv')
+write.csv(mPACE_Models$model_weights$DunedinPACE, '/output/model_weights.csv')
+```
+
+## Troubleshooting
 
 - Platform errors on Apple Silicon: build and/or run with `--platform linux/amd64`.
 - Memory: large cohorts may need more RAM; increase resources in Docker Desktop settings.
