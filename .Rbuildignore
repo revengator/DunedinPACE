@@ -1,2 +1,6 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^scripts/$
+^Dockerfile$
+^\.dockerignore$
+^DOCKER\.md$
