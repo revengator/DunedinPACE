@@ -1,11 +1,16 @@
 # DunedinPACE Docker Guide
 
-This repository is a fork that adds a Docker-based execution option to the original DunedinPACE project:
+## Fork Notice
 
-- https://github.com/danbelsky/DunedinPACE
+This repository is a fork that adds Docker-based execution and Python implementation options to the original DunedinPACE
+project by Belsky et al.:
 
-All original license terms remain unchanged.
+- Original project: https://github.com/danbelsky/DunedinPACE
 
+**All original license terms remain unchanged.** This fork maintains the same license as the original project and does
+not alter any licensing conditions.
+
+**Research Use Only:** This fork is intended for research and educational purposes only.
 
 ---
 
@@ -41,15 +46,15 @@ docker run --rm \
 
 ```sh
 # RDS with a matrix/data.frame (rows = probes, cols = samples)
-docker run --rm -v "$PWD":/data -v "$PWD/output":/output \
+docker run --rm -v "$PWD/data":/data -v "$PWD/output":/output \
   dunedinpace:local -i /data/my_betas.rds -o /output/dunedinpace.tsv
 
 # CSV with comma; first column = probe IDs (rowname)
-docker run --rm -v "$PWD":/data -v "$PWD/output":/output \
+docker run --rm -v -v "$PWD/data":/data -v "$PWD/output":/output \
   dunedinpace:local -i /data/betas.csv --sep comma --rowname-column 1 -o /output/dunedinpace.tsv
 
 # TSV with tab and samples in rows (transpose on load)
-docker run --rm -v "$PWD":/data -v "$PWD/output":/output \
+docker run --rm -v "$PWD/data":/data -v "$PWD/output":/output \
   dunedinpace:local -i /data/betas.tsv --sep tab --rowname-column 1 --transpose -o /output/dunedinpace.tsv
 ```
 
@@ -85,7 +90,7 @@ container:
 
 ```sh
 docker run --rm -it \
-  -v "$PWD":/data \
+  -v "$PWD/data":/data \
   -v "$PWD/output":/output \
   --entrypoint /bin/bash \
   dunedinpace:local
@@ -95,7 +100,7 @@ docker run --rm -it \
 
 ```sh
 docker run --rm -it \
-  -v "$PWD":/data \
+  -v "$PWD/data":/data \
   -v "$PWD/output":/output \
   --entrypoint R \
   dunedinpace:local
