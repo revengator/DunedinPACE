@@ -1,6 +1,7 @@
-"sample 1"	"sample 2"	"sample 3"	"sample 4"
-7786915023_R02C02	7786915135_R04C02	7471147149_R06C01	7786915035_R05C01
-GSM1343050	GSM1343051	GSM1343052	GSM1343053
-"peripheral blood"	"peripheral blood"	"peripheral blood"	"peripheral blood"
-"gender: M"	"gender: M"	"gender: M"	"gender: M"
-"age: 57.4"	"age: 42"	"age: 47.4"	"age: 49.3"
+"sample 1"	"sample 2"	"sample 3"	"sample 4"	"sample 5"
+7786915023_R02C02	7786915135_R04C02	7471147149_R06C01	7786915035_R05C01	7786923035_R01C01
+GSM1343050	GSM1343051	GSM1343052	GSM1343053	GSM1343054
+"Homo sapiens"	"Homo sapiens"	"Homo sapiens"	"Homo sapiens"	"Homo sapiens"
+"peripheral blood"	"peripheral blood"	"peripheral blood"	"peripheral blood"	"peripheral blood"
+"gender: M"	"gender: M"	"gender: M"	"gender: M"	"gender: M"
+"age: 57.9"	"age: 42"	"age: 47.4"	"age: 49.3"	"age: 52.5"
